@@ -17,6 +17,7 @@ name: Padre-Plugin-Kate
 no_index:
   directory:
     - inc
+    - t
 requires:
   Padre: 0.41
   Syntax::Highlight::Engine::Kate: 0.05
@@ -26,4 +27,4 @@ resources:
   homepage: http://padre.perlide.org/
   license: http://dev.perl.org/licenses/
   repository: http://svn.perlide.org/padre/trunk/Padre-Plugin-Kate
-version: 0.01
+version: 0.02

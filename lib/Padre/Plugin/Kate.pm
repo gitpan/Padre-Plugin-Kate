@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use 5.008;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use Padre::Wx ();
 use Padre::Current;
@@ -28,7 +28,7 @@ of L<Padre>.
 
 =head1 LIMITATION
 
-This is a first attempt to integrate this synatx highlighter with Padre
+This is a first attempt to integrate this syntax highlighter with Padre
 and thus many things don't work well. Especially due to speed issues currently
 even if you set the highlighting to use the Kate plugin Padre will do so
 only for small files. The hard-coded limit is in the 
@@ -81,8 +81,10 @@ sub provided_highlighters {
 
 sub highlighting_mime_types {
 	return (
-		'Padre::Plugin::Kate' => ['application/x-php'],
-		'Padre::Plugin::Kate' => ['application/x-perl'],
+		'Padre::Plugin::Kate' => [
+			'application/x-php',
+			'application/x-perl',
+		],
 	);
 }
 
@@ -91,7 +93,7 @@ sub highlighting_mime_types {
 # Shall we create a module called Pudre::Plugin::Kate::Colorize that will do the dispatching ?
 # now this is the mapping to the Kate highlighter engine
 my %d = (
-	'application/x-php'  => 'Perl', #  why ?
+	'application/x-php'  => 'PHP/PHP',
 	'application/x-perl' => 'Perl',
 );
 use Syntax::Highlight::Engine::Kate::All;
