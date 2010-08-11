@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use 5.008;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 use Padre::Wx ();
 use Padre::Current;
@@ -29,8 +29,8 @@ of L<Padre>.
 =head1 LIMITATION
 
 This is a first attempt to integrate this syntax highlighter with Padre
-and thus many things don't work well. Especially due to speed issues currently
-even if you set the highlighting to use the Kate plugin Padre will do so
+and thus many things don't work well. Especially, due to speed issues, currently
+if you set the highlighting to use the Kate plugin, Padre will do so
 only for small files. The hard-coded limit is in the 
 L<Padre::Document::Perl> class (which probably is a bug in itself) which
 probably means it will only limit Perl files and not PHP files.
@@ -58,7 +58,7 @@ modify it under the same terms as Perl 5 itself.
 
 
 sub padre_interfaces {
-	return 'Padre::Plugin' => 0.41;
+	return 'Padre::Plugin' => 0.43;
 }
 
 sub plugin_name {
@@ -82,8 +82,10 @@ sub provided_highlighters {
 sub highlighting_mime_types {
 	return (
 		'Padre::Plugin::Kate' => [
-			'application/x-php',
+			'application/x-bibtex',
 			'application/x-perl',
+			'application/x-php',
+			'text/x-java-source',
 		],
 	);
 }
@@ -93,8 +95,10 @@ sub highlighting_mime_types {
 # Shall we create a module called Pudre::Plugin::Kate::Colorize that will do the dispatching ?
 # now this is the mapping to the Kate highlighter engine
 my %d = (
-	'application/x-php'  => 'PHP/PHP',
-	'application/x-perl' => 'Perl',
+	'application/x-bibtex' => 'BibTeX',
+	'application/x-perl'   => 'Perl',
+	'application/x-php'    => 'PHP/PHP',
+	'text/x-java-source'   => 'Java',
 );
 use Syntax::Highlight::Engine::Kate::All;
 use Syntax::Highlight::Engine::Kate;
