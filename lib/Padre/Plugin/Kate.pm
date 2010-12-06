@@ -1,6 +1,6 @@
 package Padre::Plugin::Kate;
 BEGIN {
-  $Padre::Plugin::Kate::VERSION = '0.05';
+  $Padre::Plugin::Kate::VERSION = '0.06';
 }
 
 # ABSTRACT: Kate Syntax Highlighter for Padre
@@ -139,7 +139,7 @@ sub about {
 	my $about = Wx::AboutDialogInfo->new;
 	$about->SetName(__PACKAGE__);
 	$about->SetDescription(
-		Wx::gettext('Trying to use Syntax::Highlight::Engine::Kate for syntax highlighting') . "\n" );
+		Wx::gettext('Use Syntax::Highlight::Engine::Kate for syntax highlighting') . "\n" );
 	$about->SetVersion($Padre::Plugin::Kate::VERSION);
 	Wx::AboutBox($about);
 	return;
@@ -157,7 +157,7 @@ Padre::Plugin::Kate - Kate Syntax Highlighter for Padre
 
 =head1 VERSION
 
-version 0.05
+version 0.06
 
 =head1 SYNOPSIS
 

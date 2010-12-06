@@ -1,5 +1,9 @@
 Revision history for Padre-Plugin-Kate
 
+0.06   2010.12.06
+    Restored missing POT/PO translation sources (Damyan Ivanov, AZAWAWI)
+    Added nicer 'About' text (ZENOG)
+
 0.05   2010.10.29
     Added support for C# (CHORNY)
     Switched to Dist::Zilla (AZAWAWI)
